@@ -20,7 +20,7 @@ app.secret_key = generate_secret_key()
 
 # Replace with your WeatherAPI API key
 API_BASE_URL = "http://api.weatherapi.com/v1"  # Your base API URL
-API_KEY = "e0da29cbdf884babbb9123743231510"  # Your API key
+API_KEY = "add key"  # Your API key
 
 # Initialize Flask-Bootstrap
 app.config['BOOTSTRAP_SERVE_LOCAL'] = True
@@ -65,7 +65,7 @@ def calculate_carbon_footprint(distance, transportation_type):
     url = "https://carbonfootprint1.p.rapidapi.com/"
     querystring = {"distance": distance, "type": transportation_type}
     headers = {
-        "X-RapidAPI-Key": "4fe4b14bdbmshe8068f54bb0cc81p1fece2jsn256608c15e0d",
+        "X-RapidAPI-Key": "add key",
         "X-RapidAPI-Host": "carbonfootprint1.p.rapidapi.com"
     }
 
@@ -128,7 +128,7 @@ def calculate():
         }
 
         headers = {
-            "X-RapidAPI-Key": "4fe4b14bdbmshe8068f54bb0cc81p1fece2jsn256608c15e0d",
+            "X-RapidAPI-Key": "add key",
             "X-RapidAPI-Host": "mega-fitness-calculator1.p.rapidapi.com"
         }
 
@@ -161,7 +161,7 @@ def currency_converter():
         url = "https://currency-exchange.p.rapidapi.com/exchange"
         querystring = {"from": from_currency, "to": to_currency, "q": str(amount)}
         headers = {
-            "X-RapidAPI-Key": "4fe4b14bdbmshe8068f54bb0cc81p1fece2jsn256608c15e0d",
+            "X-RapidAPI-Key": "add key",
             "X-RapidAPI-Host": "currency-exchange.p.rapidapi.com"
         }
         response = requests.get(url, headers=headers, params=querystring)
