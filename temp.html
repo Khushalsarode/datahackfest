@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .content {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .input-container input[type="number"], .input-container select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>BMI Calculator</h1>
+            <form id="bmiForm">
+                <div class="form-group">
+                    <label for="weight">Weight (kg):</label>
+                    <div class="input-container">
+                        <input type="number" id="weight" name="weight" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height:</label>
+                    <div class="input-container">
+                        <input type="number" id="height" name="height" required>
+                        <select id="unit" name="unit">
+                            <option value="cm">cm</option>
+                            <option value="m">meter</option>
+                            <option value="ft">foot</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <div class="input-container">
+                        <input type="number" id="age" name="age" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <div class="input-container">
+                        <select id="gender" name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="waist">Waist:</label>
+                    <div class="input-container">
+                        <input type="number" id="waist" name="waist" required>
+                        <select id="waist_unit" name="waist_unit">
+                            <option value="cm">cm</option>
+                            <option value="inches">inches</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+            </form>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        // Add JavaScript code to handle automatic height unit conversion during form submission
+        function submitForm() {
+            const heightInput = document.getElementById("height");
+            const unitSelect = document.getElementById("unit");
+            const waistInput = document.getElementById("waist");
+            const waistUnitSelect = document.getElementById("waist_unit");
+    
+            if (unitSelect.value === "m") {
+                // If unit is meter, convert to cm
+                heightInput.value = parseFloat(heightInput.value) * 100;
+            } else if (unitSelect.value === "ft") {
+                // If unit is foot, convert to cm
+                heightInput.value = parseFloat(heightInput.value) * 30.48;
+            }
+    
+            if (waistUnitSelect.value === "inches") {
+                // If unit is inches, convert to cm
+                waistInput.value = parseFloat(waistInput.value) * 2.54;
+            }
+        }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Results</h1>
+        <div class="results">
+<!-- Display BMI result -->
+<h2>BMI Result:</h2>
+{% if bmi_result %}
+    <p>BMI: {{ bmi_result.bmi }}</p>
+    <p>Health: {{ bmi_result.health }}</p>
+    <p>Healthy BMI Range: {{ bmi_result.healthy_bmi_range }}</p>
+{% else %}
+    <p>No BMI data available</p>
+{% endif %}
+            <!-- Display ABSI result -->
+            <h2>ABSI Result:</h2>
+            <p>Mortality Risk: {{ absi_result.mortalityRisk }}</p>
+
+            <!-- Display IBW result -->
+            <h2>IBW Result:</h2>
+            <p>Robinson: {{ ibw_result.robinson }}</p>
+            <p>Miller: {{ ibw_result.miller }}</p>
+            <p>Devine: {{ ibw_result.devine }}</p>
+            <p>Hamwi: {{ ibw_result.hamwi }}</p>
+        </div>
+    </div>
+</body>
+</html>
